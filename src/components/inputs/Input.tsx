@@ -11,7 +11,7 @@ const Input = ({name, type}: Props) => {
         <input 
             className="
                 w-full placeholder:font-semibold placeholder:text-black
-                border border-slate-300 mb-3 p-4 focus:outline-none
+                border border-slate-300 mb-3 p-4 focus:outline-none md:text-xl
             "
             type={type} 
             placeholder={name}

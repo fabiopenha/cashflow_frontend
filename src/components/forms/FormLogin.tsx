@@ -1,23 +1,22 @@
 import React from 'react';
 import Button from '../button/Button';
 import Input from '../inputs/Input';
+import PasswordInput from '../inputs/PasswordInput';
 
 const FormLogin = () => {
   return (
-    <div className="mt-16 bg-white w-[90%] h-full rounded-xl px-[31px]">
-        <p className="font-semibold text-3xl my-10 w-full text-center">
-            Login
-        </p>
+    <div className="flex flex-col rounded-xl mx-5 justify-center bg-white
+    px-5
+    ">
+      <p className='text-center p-10 font-semibold text-3xl'>Login</p>
+      <form>
+        <Input name='Email' type='email'/>
+        <PasswordInput name='Senha' type='password' />
+        <Button name='Entrar'/>
 
-        <form>
-            <Input name='Nome' type='text'/>
-            <Input name='Email' type='text'/>
-            <Input name='Senha' type='password'/>
-            <Button name="Entrar" />
-        </form>
-        
-        <p className="text-center font-semibold mb-1">Esqueci minha senha</p>
-        <p className="text-center font-semibold mb-20">Criar meu cadastro</p>
+        <p className='text-center mb-2 font-semibold'>Esqueci minha senha.</p>
+        <p className='text-center mb-10 font-semibold'>Criar meu cadastro.</p>
+      </form>
     </div>
   );
 }
