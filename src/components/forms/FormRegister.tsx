@@ -18,7 +18,7 @@ const FormRegister = () => {
         <Input name="Telefone" type="text" />
         <Select />
         <PasswordInput name="Senha" type="password" />
-        <PasswordInput name="Confirmar senha" type="password" />
+        <Input name="Confirmar senha" type="password" />
         <Button name="Entrar" />
       </form>
     </div>
