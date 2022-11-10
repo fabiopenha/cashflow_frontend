@@ -9,9 +9,9 @@ const Input = ({name, type}: Props) => {
   return (
     <>
         <input 
-            className="
+            className="rounded-md
                 w-full placeholder:font-semibold placeholder:text-black
-                border border-slate-300 mb-3 p-4 focus:outline-none md:text-xl
+                border border-slate-300 mb-3 p-4 focus:outline-none text-sm
             "
             type={type} 
             placeholder={name}

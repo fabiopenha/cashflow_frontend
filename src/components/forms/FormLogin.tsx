@@ -1,11 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Button from '../button/Button';
 import Input from '../inputs/Input';
 import PasswordInput from '../inputs/PasswordInput';
 
 const FormLogin = () => {
   return (
-    <div className="flex flex-col rounded-xl mx-5 justify-center bg-white
+    <div className="flex flex-col md:w-[389px] rounded-xl sm:mx-5 justify-center bg-white
     px-5
     ">
       <p className='text-center p-10 font-semibold text-3xl'>Login</p>
@@ -14,8 +15,8 @@ const FormLogin = () => {
         <PasswordInput name='Senha' type='password' />
         <Button name='Entrar'/>
 
-        <p className='text-center mb-2 font-semibold'>Esqueci minha senha.</p>
-        <p className='text-center mb-10 font-semibold'>Criar meu cadastro.</p>
+        <p className='text-center mb-2 font-semibold'><Link to='/'>Esqueci minha senha.</Link></p>
+        <p className='text-center mb-10 font-semibold'><Link to='/register'>Criar meu cadastro.</Link></p>
       </form>
     </div>
   );

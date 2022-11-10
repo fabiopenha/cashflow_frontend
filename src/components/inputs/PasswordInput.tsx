@@ -13,11 +13,11 @@ const PasswordInput = ({name, type}: Props) => {
     openEye ? setOpenEye(false) : setOpenEye(true)
   }
   return (
-    <div className="border border-slate-300 mb-4 h-[62px] flex items-center pr-4">
+    <div className="border rounded-md border-slate-300 mb-4 h-[62px] flex items-center pr-4">
         <input 
             className="
                 placeholder:font-semibold placeholder:text-black w-full
-                p-4 focus:outline-none md:text-xl
+                p-4 focus:outline-none text-sm
             "
             
             type={openEye ? 'text' : type} 
