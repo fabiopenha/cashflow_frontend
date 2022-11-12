@@ -7,8 +7,8 @@ import Select from "../inputs/Select";
 const FormRegister = () => {
   return (
     <div
-      className="flex flex-col md:w-[389px] rounded-xl mx-5 
-    justify-center bg-white sm:px-5 sm:mb-4
+      className="flex flex-col md:w-[389px] rounded-xl mx-5
+    justify-center bg-white px-5 sm:mb-4 
     "
     >
       <p className="text-center p-10 font-semibold text-3xl">Register</p>

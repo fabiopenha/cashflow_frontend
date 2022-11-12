@@ -6,8 +6,8 @@ import PasswordInput from '../inputs/PasswordInput';
 
 const FormLogin = () => {
   return (
-    <div className="flex flex-col md:w-[389px] rounded-xl sm:mx-5 justify-center bg-white
-    px-5
+    <div className="flex flex-col md:w-[389px] rounded-xl mx-5 justify-center 
+    bg-white px-5 mb-4
     ">
       <p className='text-center p-10 font-semibold text-3xl'>Login</p>
       <form>
