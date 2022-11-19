@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Register from "./components/pages/register";
 import Forgot from "./components/pages/forgot";
 import Dashboard from "./components/pages/dashboard";
+import Add from "./components/pages/add";
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
         <Route path="forgot" element={<Forgot />} />
         <Route path="dashboard" element={<Dashboard />} />
         <Route path="detail" element={<div>Balanço detalhado</div>} />
-        <Route path="add" element={<div>New page</div>} />
+        <Route path="add" element={<Add />} />
       </Routes>
     </BrowserRouter>
   );
