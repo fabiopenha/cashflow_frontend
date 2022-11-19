@@ -8,7 +8,7 @@ type Props = {
 const CardStatus = ({ iconFace, color, text }: Props) => {
   return (
     <div
-      className={`w-full h-[131px] bg-[${color}] mt-5 rounded-md p-3
+      className={`w-full h-[131px] bg-[${color}] mt-10 rounded-md p-3
     flex items-center md:justify-center gap-3`}
     >
       <img src={iconFace} alt="sad" />

@@ -8,13 +8,14 @@ import sadface from "../../../sadface.svg";
 import moneyface from "../../../moneyface.svg";
 import CardSlider from "../../iconFaces/CardSlider";
 import logo from '../../../images/logo.svg'
+import { Link } from "react-router-dom";
 
 const Dashboard = () => {
   return (
     <>
       <div
         className="w-full h-[140px] bg-[#21A136] flex items-center 
-        justify-between px-5 lg:px-[34px]
+        justify-between px-5 lg:px-[20px]
       "
       >
         <div className="flex items-center">
@@ -28,7 +29,7 @@ const Dashboard = () => {
           </p>
         </div>
 
-        <ImExit className="text-xl text-white" />
+        <ImExit className="text-2xl text-white" />
       </div>
       
       <div
@@ -41,7 +42,7 @@ const Dashboard = () => {
             <p className="text-center my-8 font-semibold w-full">
               Visão geral
             </p>
-            <TiArrowRightThick />
+            <Link to="/add"><TiArrowRightThick /></Link>
           </div>
           <div className="w-full grid grid-cols-2 gap-5">
             <CardView title="Renda do mês" value="1.200,00" color="#21A136" />
@@ -49,20 +50,29 @@ const Dashboard = () => {
             <CardView title="Despesa" value="800,00" color="#FF0000" />
             <CardView title="Renda extra" value="500,00" color="#000AFF" />
           </div>
+          
           <CardStatus
             iconFace={moneyface}
             color="#21A136"
             text={`Você está ficando rico! Continue aumentando a sua receita.`}
           />
 
-          
         </div>
-        <h1 className="mt-5 font-semibold">Conteúdos que deixarão você rico</h1>
+        
+        <h1 className="mt-8 mb-5 font-semibold text-xl">
+          Conteúdos que deixarão você rico
+        </h1>
 
-        <CardSlider />
+          <CardSlider />
 
-        <div className="w-[130px] mx-auto mt-8  lg:pb-14">
-          <img src={logo} alt="logo"/>
+        <div className="w-[130px] mx-auto">
+          <Link to="/detail">
+            <button className="text-center w-full mt-12 mb-8  md:my-8 py-2 rounded 
+              bg-[#21A136] text-white font-bold"
+            >
+              Adicionar
+            </button>
+            </Link>
         </div>
 
       </div>

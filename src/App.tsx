@@ -14,6 +14,8 @@ function App() {
         <Route path="register" element={<Register />} />
         <Route path="forgot" element={<Forgot />} />
         <Route path="dashboard" element={<Dashboard />} />
+        <Route path="detail" element={<div>Balanço detalhado</div>} />
+        <Route path="add" element={<div>New page</div>} />
       </Routes>
     </BrowserRouter>
   );
