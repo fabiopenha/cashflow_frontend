@@ -1,11 +1,13 @@
 import { HiDotsHorizontal } from "react-icons/hi";
+import MenuDetail from "../menus/MenuDetail";
 
 const CardDetail = () => {
   return (
     <div className="w-full border-b p-5 flex flex-col gap-2">
-        <div className="flex items-center justify-between">
+        <div className="relative flex items-center justify-between">
             <p className="text-sm text-stone-400">Salário</p>
             <HiDotsHorizontal className="text-2xl"/>
+            <MenuDetail />
         </div>
         <div>
             

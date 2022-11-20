@@ -49,7 +49,7 @@ const Detail = () => {
             <TiArrowRightThick />
           </div>
 
-          <div className=" w-full h-72 border overflow-y-auto">
+          <div className="w-full h-72 border overflow-y-auto">
             <CardDetail />
             <CardDetail />
             <CardDetail />
