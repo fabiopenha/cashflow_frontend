@@ -7,7 +7,7 @@ const FormAdd = () => {
   return (
     <div
       className="flex flex-col w-full md:w-[389px] rounded-xl mx-5
-    justify-center bg-white px-5 sm:mb-4 md:border md:shadow-md md:py-5
+    justify-center bg-white md:px-5 sm:mb-4 md:border md:shadow-md md:py-5
     "
     >
       <form>

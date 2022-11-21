@@ -22,7 +22,7 @@ const Dashboard = () => {
           <img
             src={perfil}
             alt="perfil"
-            className="rounded-full w-[58px] h-[58px]"
+            className="rounded-full w-[68px] h-[68px]"
           />
           <p className="w-5 m-3 font-semibold text-white text-xs">
             Olá, Samantha!
