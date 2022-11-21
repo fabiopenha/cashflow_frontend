@@ -33,7 +33,7 @@ const Dashboard = () => {
       </div>
       
       <div
-        className="h-[100vh] bg-white px-5
+        className="h-full px-5
         
       "
       >
@@ -65,9 +65,9 @@ const Dashboard = () => {
 
           <CardSlider />
 
-        <div className="w-[130px] mx-auto">
+        <div className="w-[130px] mx-auto mb-5">
           <Link to="/detail">
-            <button className="text-center w-full mt-12 mb-8  md:my-8 py-2 rounded 
+            <button className="text-center w-full md:my-8 py-2 rounded 
               bg-[#21A136] text-white font-bold"
             >
               Adicionar
