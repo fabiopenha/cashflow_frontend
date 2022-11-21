@@ -10,7 +10,7 @@ const Button = ({name}: Props) => {
         <button
             className="
                 w-full font-semibold md:text-xl rounded-md
-                bg-[#21A136] mb-8 p-4  text-white
+                bg-[#21A136] mt-2 md:mb-8 p-4  text-white
             "
         >
             {name}
