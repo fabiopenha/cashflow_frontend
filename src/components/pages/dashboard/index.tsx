@@ -65,7 +65,7 @@ const Dashboard = () => {
 
           <CardSlider />
 
-        <div className="w-[130px] mx-auto mb-5">
+        <div className="w-[130px] mx-auto my-5">
           <Link to="/detail">
             <button className="text-center w-full md:my-8 py-2 rounded 
               bg-[#21A136] text-white font-bold"

@@ -7,7 +7,7 @@ import 'swiper/css';
 
 const CardSlider = () => {
   return (
-    <div className="h-40 md:h-96 mb-5">
+    <div className="h-40 md:h-96 md:mb-5 bg-slate-400 rounded-md">
       <Swiper
         slidesPerView={1}
         spaceBetween={10}
@@ -16,14 +16,15 @@ const CardSlider = () => {
           disableOnInteraction: false,
         }}
         modules={[Autoplay]}
+        className="h-full w-full"
       >
         <SwiperSlide>
-          <img src={foto1} alt="slide" className="w-full h-44 md:h-96 rounded-md 
+          <img src={foto1} alt="slide" className="w-full h-full md:h-96 rounded-md
           object-cover md:object-fill" />
         </SwiperSlide>
 
-        <SwiperSlide>
-          <img src={foto1} alt="slide" className="w-full h-44 md:h-96 rounded-md 
+        <SwiperSlide className="rounded-md">
+          <img src={foto1} alt="slide" className="w-full h-full md:h-96 rounded-md
           object-cover md:object-fill" />
         </SwiperSlide>
 
