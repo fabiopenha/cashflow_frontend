@@ -34,7 +34,7 @@ const Add = () => {
       >
         <div className="w-full flex flex-col items-center">
           <div className="flex items-center justify-between w-full">
-            <Link to="/add"><TiArrowLeftThick /></Link>
+            <Link to="/dashboard"><TiArrowLeftThick /></Link>
             <p className="text-center md:text-lg my-8 font-semibold w-full">
               Criar atividade
             </p>

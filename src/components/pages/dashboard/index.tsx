@@ -45,10 +45,10 @@ const Dashboard = () => {
             <Link to="/add"><TiArrowRightThick /></Link>
           </div>
           <div className="w-full grid grid-cols-2 gap-5">
-            <CardView title="Renda do mês" value="1.200,00" color="#21A136" />
-            <CardView title="Salário" value="1.500,00" color="#21A136" />
-            <CardView title="Despesa" value="800,00" color="#FF0000" />
-            <CardView title="Renda extra" value="500,00" color="#000AFF" />
+            <Link to="/detail"><CardView title="Renda do mês" value="1.200,00" color="#21A136" /></Link>
+            <Link to="/detail"><CardView title="Salário" value="1.500,00" color="#21A136" /></Link>
+            <Link to="/detail"><CardView title="Despesa" value="800,00" color="#FF0000" /></Link>
+            <Link to="/detail"><CardView title="Renda extra" value="500,00" color="#000AFF" /></Link>
           </div>
           
           <CardStatus

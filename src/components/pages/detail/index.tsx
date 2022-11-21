@@ -37,19 +37,19 @@ const Detail = () => {
       >
         <div className="w-full flex flex-col items-center">
           <div className="flex items-center justify-between w-full">
-          <Link to="/add"><TiArrowLeftThick /></Link>
+          <Link to="/dashboard"><TiArrowLeftThick /></Link>
             <p className="text-center my-8 font-semibold w-full">
               Balanço detalhado
             </p>
           </div>
 
           <div className="w-full border p-5 mb-3 font-semibold flex items-center justify-between">
-            <TiArrowLeftThick />
+            <div className="w-5 h-5 bg-green-500 flex items-center justify-center rounded-full text-white "><TiArrowLeftThick /></div>
             Out 2022
-            <TiArrowRightThick />
+            <div className="w-5 h-5 bg-green-500 flex items-center justify-center rounded-full text-white "><TiArrowRightThick /></div>
           </div>
 
-          <div className="w-full h-72 border overflow-y-auto">
+          <div className="w-full h-72 mt-3 border overflow-y-auto">
             <CardDetail />
             <CardDetail />
             <CardDetail />
