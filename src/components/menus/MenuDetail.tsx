@@ -8,10 +8,10 @@ const MenuDetail = ({ hidden }: Props) => {
     divide-y-2 border shadow-md rounded-md ${hidden}`}
     >
         <div className="text-sm text-center w-full">
-            <p className="my-3">Deletar</p>
+            <p className="my-3 hover:font-semibold">Deletar</p>
         </div>
         <div className="text-sm text-center w-full">
-            <p className="my-3">Editar</p>
+            <p className="my-3 hover:font-semibold">Editar</p>
         </div>
     </div>
   )

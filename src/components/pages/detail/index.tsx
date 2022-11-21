@@ -3,12 +3,28 @@ import { ImExit } from "react-icons/im";
 import { TiArrowLeftThick, TiArrowRightThick } from "react-icons/ti";
 import perfil from "../../../images/perfil.jpg";
 import { Link } from "react-router-dom";
-import { getCurrentMonth } from '../../utils/dateFilter';
+import { getCurrentMonth, formatCurrentMonth } from '../../utils/dateFilter';
 import CardDetail from "../../iconFaces/CardDetail";
 
 const Detail = () => {
   const [filtered, setFilteredList] = useState([]);
   const [currentMonth, setCurrentMont] = useState(getCurrentMonth());
+
+  const handlePrevMonth = () => {
+    let [year, month] = currentMonth.split('-');
+    let currentDate = new Date(parseInt(year), parseInt(month) - 1, 1);
+    currentDate.setMonth( currentDate.getMonth() - 1 );
+    setCurrentMont(`${currentDate.getFullYear()}-${currentDate.getMonth() + 1}`)
+  }
+
+  const handleNextMonth = () => {
+    let [year, month] = currentMonth.split('-');
+    let currentDate = new Date(parseInt(year), parseInt(month) - 1, 1);
+    currentDate.setMonth( currentDate.getMonth() + 1 );
+    setCurrentMont(`${currentDate.getFullYear()}-${currentDate.getMonth() + 1}`)
+  }
+
+
   return (
     <>
       <div
@@ -44,9 +60,17 @@ const Detail = () => {
           </div>
 
           <div className="w-full border p-5 mb-3 font-semibold flex items-center justify-between">
-            <div className="w-5 h-5 bg-green-500 flex items-center justify-center rounded-full text-white "><TiArrowLeftThick /></div>
-            Out 2022
-            <div className="w-5 h-5 bg-green-500 flex items-center justify-center rounded-full text-white "><TiArrowRightThick /></div>
+            <div className="w-5 h-5 bg-green-500 flex items-center justify-center
+             rounded-full text-white "
+            >
+              <TiArrowLeftThick onClick={handlePrevMonth} />
+            </div>
+            {formatCurrentMonth(currentMonth)}
+            <div className="w-5 h-5 bg-green-500 flex items-center justify-center 
+             rounded-full text-white "
+            >
+              <TiArrowRightThick onClick={handleNextMonth} />
+            </div>
           </div>
 
           <div className="w-full h-72 mt-3 border overflow-y-auto">
