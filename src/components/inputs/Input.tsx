@@ -2,9 +2,8 @@ import React, { ChangeEvent } from 'react';
 type Props = {
     name: string;
     type: string;
-    onChange?: (event: ChangeEvent<HTMLInputElement>) => void
+    onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
 }
-
 
 const Input = ({name, type, onChange}: Props) => {
   return (
@@ -18,6 +17,7 @@ const Input = ({name, type, onChange}: Props) => {
             name={name}
             placeholder={name}
             onChange={onChange}
+            required
         />
     </>
   )
