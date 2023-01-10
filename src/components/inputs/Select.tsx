@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { ChangeEvent, useState } from 'react';
 type Props = {
     name: string;
-    type: string;
+    onChange: (event: ChangeEvent<HTMLSelectElement>) => void
 }
 
 
-const Select = () => {
+const Select = ({name, onChange}: Props) => {
   const [select, useSelect] = useState('')
 
   return (
@@ -14,11 +14,15 @@ const Select = () => {
     ">
       <select className="font-semibold placeholder:font-semibold placeholder:text-black
       focus:outline-none text-sm w-full
-
-      ">
-        <option value="grapefruit">Grapefruit</option>
-        <option value="lime">Lime</option>
-        <option selected value="coconut">
+      "
+      defaultValue={"select"}
+      onChange={onChange}
+      name={name}
+      >
+        <option value="select" disabled>----------------------------------------</option>
+        <option value="Salário"></option>
+        <option value="Renda extra">Renda extra</option>
+        <option value="Mercado">
           Coconut
         </option>
         <option value="mango">Mango</option>

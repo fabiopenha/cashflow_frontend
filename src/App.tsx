@@ -9,6 +9,7 @@ import Add from "./components/pages/add";
 import Detail from "./components/pages/detail";
 
 function App() {
+
   return (
     <BrowserRouter>
       <Routes>

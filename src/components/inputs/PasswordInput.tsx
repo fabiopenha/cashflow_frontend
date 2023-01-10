@@ -1,12 +1,13 @@
-import { useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
 
 type Props = {
     name: string;
     type: string;
+    onChange?: (event: ChangeEvent<HTMLInputElement>) => void
 }
 
-const PasswordInput = ({name, type}: Props) => {
+const PasswordInput = ({name, type, onChange}: Props) => {
   const [openEye, setOpenEye] = useState(false);  
 
   const HandleOpenEye = () => {
@@ -22,6 +23,8 @@ const PasswordInput = ({name, type}: Props) => {
             
             type={openEye ? 'text' : type} 
             placeholder={name}
+            onChange={onChange}
+            name={name}
         />
         {openEye ? 
         <AiFillEye className='text-2xl' onClick={HandleOpenEye} /> :
