@@ -13,5 +13,5 @@ export const login = async (user: IUserLogin) => {
       });
 
       return data;
-
+      
 }
