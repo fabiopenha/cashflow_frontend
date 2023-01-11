@@ -1,31 +1,12 @@
-import React from "react";
-import { ImExit } from "react-icons/im";
 import { TiArrowLeftThick } from "react-icons/ti";
-import perfil from "../../../images/perfil.jpg";
 import { Link } from "react-router-dom";
 import FormAdd from "../../forms/FormAdd";
+import { Header } from "../../header";
 
 const Add = () => {
   return (
     <>
-      <div
-        className="w-full h-[140px] bg-[#21A136] flex items-center 
-        justify-between px-5 lg:px-[20px]
-      "
-      >
-        <div className="flex items-center">
-          <img
-            src={perfil}
-            alt="perfil"
-            className="rounded-full w-[68px] h-[68px]"
-          />
-          <p className="w-5 m-3 font-semibold text-white text-xs">
-            Olá, Samantha!
-          </p>
-        </div>
-
-        <ImExit className="text-2xl text-white" />
-      </div>
+      <Header />
       
       <div
         className="h-[100%] bg-white px-5

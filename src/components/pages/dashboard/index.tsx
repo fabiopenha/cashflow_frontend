@@ -1,36 +1,16 @@
-import React from "react";
-import { ImExit } from "react-icons/im";
 import { TiArrowRightThick } from "react-icons/ti";
-import perfil from "../../../images/perfil.jpg";
 import CardView from "../../cardView/CardView";
 import CardStatus from "../../iconFaces/CardStatus";
-import sadface from "../../../sadface.svg";
 import moneyface from "../../../moneyface.svg";
 import CardSlider from "../../iconFaces/CardSlider";
-import logo from '../../../images/logo.svg'
 import { Link } from "react-router-dom";
+import { Header } from "../../header";
 
 const Dashboard = () => {
+  
   return (
     <>
-      <div
-        className="w-full h-[140px] bg-[#21A136] flex items-center 
-        justify-between px-5 lg:px-[20px]
-      "
-      >
-        <div className="flex items-center">
-          <img
-            src={perfil}
-            alt="perfil"
-            className="rounded-full w-[68px] h-[68px]"
-          />
-          <p className="w-5 m-3 font-semibold text-white text-xs">
-            Olá, Samantha!
-          </p>
-        </div>
-
-        <ImExit className="text-2xl text-white" />
-      </div>
+      <Header />
       
       <div
         className="h-full px-5
