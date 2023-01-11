@@ -5,6 +5,7 @@ import perfil from "../../../images/perfil.jpg";
 import { Link } from "react-router-dom";
 import { getCurrentMonth, formatCurrentMonth } from '../../utils/dateFilter';
 import CardDetail from "../../iconFaces/CardDetail";
+import { Header } from "../../header";
 
 const Detail = () => {
   const [filtered, setFilteredList] = useState([]);
@@ -27,24 +28,7 @@ const Detail = () => {
 
   return (
     <>
-      <div
-        className="w-full h-[140px] bg-[#21A136] flex items-center 
-        justify-between px-5 lg:px-[20px]
-      "
-      >
-        <div className="flex items-center">
-          <img
-            src={perfil}
-            alt="perfil"
-            className="rounded-full w-[68px] h-[68px]"
-          />
-          <p className="w-5 m-3 font-semibold text-white text-xs">
-            Olá, Samantha!
-          </p>
-        </div>
-
-        <ImExit className="text-2xl text-white" />
-      </div>
+      <Header />
       
       <div
         className="h-full bg-white px-5
