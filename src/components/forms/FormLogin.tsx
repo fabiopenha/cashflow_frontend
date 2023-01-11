@@ -1,37 +1,29 @@
-import React, { ChangeEvent, SyntheticEvent, useState } from 'react';
+import React, { SyntheticEvent, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { login } from '../../services/auth/login';
 import Button from '../button/Button';
 import Input from '../inputs/Input';
 import PasswordInput from '../inputs/PasswordInput';
+import { api } from '../utils/api/api';
 
-const FormLogin = () => {
+const FormLogin = (props: {loginData: Function}) => {
 
   const [email, setEmail] = useState<string | undefined>('');
   const [password, setPassword] = useState<string | undefined>('');
   const [text, setText] = useState();
+  const [loginData, setLoginData] = useState<{
+    id ?: string;
+    secret ?: string;
+    otpauth_url ?: string;
+  }>();
 
-  const navigate =useNavigate()
-
-  const submit = (e: SyntheticEvent)=> {
+  const submit = async(e: SyntheticEvent)=> {
     e.preventDefault();
 
-    const userLogin = {
+    const { data } = await api.post('/v1/auth/login', {
       email: email,
       password: password
-    }
-
-    login(userLogin)
-      .then(function (response) {
-        return response.data.message;
-      })
-      .catch(function (error) {
-        return setText(error.response.data.errors);
     });
-
-    navigate('/dashboard');
-
-
+    props.loginData(data);
   }
 
   return (
