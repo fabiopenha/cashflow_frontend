@@ -6,6 +6,7 @@ import Forgot from "./components/pages/forgot";
 import Dashboard from "./components/pages/dashboard";
 import Add from "./components/pages/add";
 import Detail from "./components/pages/detail";
+import { Protected } from "./components/protected";
 
 function App() {
 
@@ -15,7 +16,9 @@ function App() {
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
         <Route path="forgot" element={<Forgot />} />
-        <Route path="dashboard" element={<Dashboard />} />
+        <Route element={<Protected />}>
+          <Route path="dashboard" element={<Dashboard />} />
+        </Route>
         <Route path="detail" element={<Detail />} />
         <Route path="add" element={<Add />} />
       </Routes>
