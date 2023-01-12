@@ -12,7 +12,8 @@ export const Header = () => {
             try {
                 const {data} = await api.get('/v1/auth/authenticatedUser');
     
-                setUser(data);
+                setUser(data.user);
+                
     
             } catch(err) {
                 return err;

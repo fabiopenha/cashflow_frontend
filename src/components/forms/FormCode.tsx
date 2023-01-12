@@ -1,4 +1,4 @@
-import React, { ReactElement, SyntheticEvent, useEffect, useState } from 'react';
+import React, { ReactElement, SyntheticEvent, useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { authCode } from '../../services/auth/code';
 import Button from '../button/Button';
@@ -15,7 +15,7 @@ const FormCode = (props: {logindata: {
   const [img, setImg] = useState<ReactElement | null>(null);
   
 
-  const navigate =useNavigate()
+  const navigate =useNavigate();
 
   useEffect(() => {
     if(props.logindata.otpauth_url){
@@ -37,6 +37,7 @@ const FormCode = (props: {logindata: {
     authCode(codeLogin).then((response) => {
       console.log(response);
       if(response.status === 200) {
+        localStorage.setItem('page_local', 'true');
         navigate('/dashboard');
       }
     });
