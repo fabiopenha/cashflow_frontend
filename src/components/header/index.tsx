@@ -2,10 +2,18 @@ import perfil from "../../images/perfil.jpg";
 import { ImExit } from "react-icons/im";
 import { api } from "../utils/api/api";
 import { useEffect, useState } from "react";
+import { logOut } from "../../services/auth/logout";
+import { useNavigate } from "react-router-dom";
 
 export const Header = () => {
+  const navigate = useNavigate();
     
     const [user, setUser] = useState<{name?: string}>();
+
+    const handleClick = () => {
+      logOut();
+      navigate('/login');
+    }
     
         useEffect(() => {
         (async ()=> {
@@ -43,7 +51,7 @@ export const Header = () => {
           </p>
         </div>
 
-        <ImExit className="text-2xl text-white" />
+        <ImExit className="text-2xl text-white cursor-pointer" onClick={handleClick}/>
       </div>
     );
 }
