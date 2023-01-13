@@ -7,6 +7,7 @@ import Dashboard from "./components/pages/dashboard";
 import Add from "./components/pages/add";
 import Detail from "./components/pages/detail";
 import { Protected } from "./components/protected";
+import ResetPassword from "./components/pages/resetPassword";
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
         <Route path="forgot" element={<Forgot />} />
+        <Route path="reset/:token" element={<ResetPassword />} />
         
         <Route element={<Protected />}>
           <Route path="dashboard" element={<Dashboard />} />
