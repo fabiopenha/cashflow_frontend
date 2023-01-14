@@ -36,7 +36,7 @@ const FormLogin = (props: {loginData: Function}) => {
         <PasswordInput name='Senha' type='password' onChange={e => setPassword(e.target.value)}/>
         <Button name='Entrar'/>
 
-        <p className='text-center mb-2 font-semibold'><Link to='/'>Esqueci minha senha.</Link></p>
+        <p className='text-center mb-2 font-semibold'><Link to='/forgot'>Esqueci minha senha.</Link></p>
         <p className='text-center mb-10 font-semibold'><Link to='/register'>Criar meu cadastro.</Link></p>
       </form>
     </div>
