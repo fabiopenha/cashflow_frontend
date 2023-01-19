@@ -15,7 +15,7 @@ export const Header = () => {
       navigate('/login');
     }
     
-        useEffect(() => {
+      useEffect(() => {
         (async ()=> {
             try {
                 const {data} = await api.get('/v1/auth/authenticatedUser');
