@@ -1,15 +1,39 @@
-import { useState } from "react";
-import { ImExit } from "react-icons/im";
+import { useContext, useEffect, useState } from "react";
 import { TiArrowLeftThick, TiArrowRightThick } from "react-icons/ti";
-import perfil from "../../../images/perfil.jpg";
 import { Link } from "react-router-dom";
-import { getCurrentMonth, formatCurrentMonth } from '../../utils/dateFilter';
+import { getCurrentMonth, formatCurrentMonth, filterByMonth } from '../../utils/dateFilter';
 import CardDetail from "../../iconFaces/CardDetail";
 import { Header } from "../../header";
+import { ApiDataContext } from "../../../context/getUserContext";
+import { getActibitiesByUser } from "../../../services/activities/GetActibitiesByUser";
+
+type ActivityProp = {
+  _id: string;
+  date: string;
+  category: string;
+  description: string;
+  cash:string;
+};
 
 const Detail = () => {
-  const [filtered, setFilteredList] = useState([]);
+  const id = useContext(ApiDataContext);
+  const [activities, setActivities] = useState<ActivityProp[]>([]);
+  const [filtered, setFilteredList] = useState<ActivityProp[]>([]);
   const [currentMonth, setCurrentMont] = useState(getCurrentMonth());
+
+  useEffect(() => {
+    getActibitiesByUser(id).then((res) => {
+      setActivities(res);
+      console.log(activities);
+      console.log(id);
+    })
+
+  }, [id]);
+
+  useEffect(() => {
+    setFilteredList( filterByMonth(activities, currentMonth) );
+
+  }, [activities, currentMonth]);
 
   const handlePrevMonth = () => {
     let [year, month] = currentMonth.split('-');
@@ -58,11 +82,21 @@ const Detail = () => {
           </div>
 
           <div className="w-full h-72 mt-3 border overflow-y-auto">
-            <CardDetail />
-            <CardDetail />
-            <CardDetail />
-            <CardDetail />
-            <CardDetail />
+
+            {filtered.map(item => (
+              <>
+                {console.log(item)}
+                <CardDetail
+                  key={item._id}
+                  date={item.date} 
+                  category={item.category} 
+                  description={item.description}
+                  cash ={item.cash}
+                />
+              </>
+            ))}
+            
+            
           </div>
 
         </div>
