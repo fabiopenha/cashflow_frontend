@@ -2,15 +2,44 @@ import { TiArrowRightThick } from "react-icons/ti";
 import CardView from "../../cardView/CardView";
 import CardStatus from "../../iconFaces/CardStatus";
 import moneyface from "../../../moneyface.svg";
+import sadface from "../../../sadface.svg";
 import CardSlider from "../../iconFaces/CardSlider";
 import { Link } from "react-router-dom";
 import { Header } from "../../header";
+import { useContext, useEffect } from "react";
+import { ApiDataContext } from "../../../context/getUserContext";
+import { getactivitiesdata } from "../../../services/activities/GetActibityDataByUser";
+import { useState } from "react";
 
 const Dashboard = () => {
+  const id = useContext(ApiDataContext);
+
+  const [sumReceita, setSumReceita] = useState<number | undefined>(0);
+  const [sumDespesa, setSumDespesa] = useState<number | undefined>(0);
+  const [sumSalario, setSumSalario] = useState<number | undefined>(0);
+  const [sumRendaExtra, setRendaExtra] = useState<number | undefined>(0);
+  const [isLoading, setIsLoading] = useState('');
+  
+
+  useEffect(() => {
+    getactivitiesdata(id).then((res) => {
+      setSumReceita(res.sumReceita[0]["totalReceita"]);
+      setSumDespesa(res.sumDespesa[0]["totalDespesa"]);
+      setSumSalario(res.sumSalário[0]["totalSalario"]);
+      setRendaExtra(res.sumRendaExtra[0]["totalRendaExtra"]);
+      setIsLoading('true');
+    })
+    setIsLoading('');
+  }, [id]);
+
+  let receita = 0;
+
+  if(sumReceita && sumDespesa) receita = sumReceita - sumDespesa;
   
   return (
     <>
       <Header />
+
       
       <div
         className="h-full px-5
@@ -25,17 +54,29 @@ const Dashboard = () => {
             <Link to="/add"><TiArrowRightThick /></Link>
           </div>
           <div className="w-full grid grid-cols-2 gap-5">
-            <Link to="/detail"><CardView title="Renda do mês" value="1.200,00" color="#21A136" /></Link>
-            <Link to="/detail"><CardView title="Salário" value="1.500,00" color="#21A136" /></Link>
-            <Link to="/detail"><CardView title="Despesa" value="800,00" color="#FF0000" /></Link>
-            <Link to="/detail"><CardView title="Renda extra" value="500,00" color="#000AFF" /></Link>
+            <Link to="/detail"><CardView title="Receita do mês" value={String(receita)} color="#21A136" /></Link>
+            <Link to="/detail"><CardView title="Salário" value={String(sumSalario)} color="#21A136" /></Link>
+            <Link to="/detail"><CardView title="Despesa" value={String(sumDespesa)} color="#FF0000" /></Link>
+            <Link to="/detail"><CardView title="Renda extra" value={String(sumRendaExtra)} color="#000AFF" /></Link>
           </div>
           
-          <CardStatus
-            iconFace={moneyface}
-            color="#21A136"
-            text={`Você está ficando rico! Continue aumentando a sua receita.`}
-          />
+          {
+            receita > sumDespesa! ?
+          
+            <CardStatus
+              iconFace={moneyface}
+              color="#21A136"
+              text={`Você está ficando rico! Continue aumentando a sua receita.`}
+              display={isLoading}
+            /> 
+          :
+            <CardStatus
+                iconFace={sadface}
+                color="#FF0000"
+                text={`Você está ficando pobre! É hora de gastar menos e ganhar mais dinheiro.`} 
+                display={isLoading}
+            />
+          }
 
         </div>
         
