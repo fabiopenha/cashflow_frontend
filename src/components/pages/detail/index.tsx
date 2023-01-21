@@ -13,6 +13,7 @@ type ActivityProp = {
   category: string;
   description: string;
   cash:string;
+  status: string;
 };
 
 const Detail = () => {
@@ -92,6 +93,7 @@ const Detail = () => {
                   category={item.category} 
                   description={item.description}
                   cash ={item.cash}
+                  status={item.status}
                 />
               </>
             ))}
