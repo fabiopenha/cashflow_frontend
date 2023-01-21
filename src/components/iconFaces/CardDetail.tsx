@@ -8,9 +8,10 @@ type Props = {
   category: string;
   description: string;
   cash:string;
+  status: string;
 };
 
-const CardDetail = ({ description, date, category, cash } : Props) => {
+const CardDetail = ({ description, date, category, cash, status } : Props) => {
   const [showMenu, setShowMenu] = useState(false);
 
   const handleDotClick = () => {
@@ -35,7 +36,10 @@ const CardDetail = ({ description, date, category, cash } : Props) => {
             
             <div className="flex justify-between">
             <p className="flex items-center mb-2">
-                <div className="w-[8px] h-[8px] bg-[#21A136] rounded-full mr-1"></div>
+                <div 
+                  className={`w-[8px] h-[8px] rounded-full mr-1`}
+                  style={{backgroundColor: status ==='Receita' ?'#21A136' : '#FF0000'}}
+                ></div>
                 {description}
             </p>
             <div className="text-[#21A136] font-semibold">R$ {cash}</div>

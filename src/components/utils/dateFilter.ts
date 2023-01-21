@@ -39,6 +39,7 @@ type ActivityProp = {
   category: string;
   description: string;
   cash:string;
+  status: string;
 };
 
 export const filterByMonth = (activity: ActivityProp[], date: string): ActivityProp[]=> {
