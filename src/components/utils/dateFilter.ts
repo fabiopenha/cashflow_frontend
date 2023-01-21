@@ -57,3 +57,10 @@ export const filterByMonth = (activity: ActivityProp[], date: string): ActivityP
 
   return newList;
 }
+
+export const currentDay = (dateStored: string): string => {
+  let date = new Date(dateStored);
+  let newDate = new Date(date.getTime() + 24*60*60*1000);
+
+  return String(newDate);
+}

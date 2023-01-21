@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { HiDotsHorizontal } from "react-icons/hi";
 import MenuDetail from "../menus/MenuDetail";
-import { formatDate } from "../utils/dateFilter";
+import { currentDay, formatDate } from "../utils/dateFilter";
 
 type Props = {
   date: string;
@@ -41,7 +41,7 @@ const CardDetail = ({ description, date, category, cash } : Props) => {
             <div className="text-[#21A136] font-semibold">R$ {cash}</div>
             </div>
         </div>
-        <div className="text-xs">{formatDate(date)}</div>
+        <div className="text-xs">{formatDate(currentDay(date))}</div>
     </div>
   )
 }
