@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { ChangeEvent } from 'react';
 type Props = {
     name: string;
     type: string;
     title?: string;
+    onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
 
-const InputLabel = ({name, type, title}: Props) => {
+const InputLabel = ({name, type, title, onChange}: Props) => {
   return (
     <>
         <label htmlFor={name}><p className="mb-3 text-sm font-semibold">{title}</p></label>
@@ -18,6 +19,7 @@ const InputLabel = ({name, type, title}: Props) => {
             type={type} 
             id={name}
             placeholder={name}
+            onChange={onChange}
         />
     </>
   )
