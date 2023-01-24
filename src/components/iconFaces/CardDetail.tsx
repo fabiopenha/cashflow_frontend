@@ -4,14 +4,16 @@ import MenuDetail from "../menus/MenuDetail";
 import { currentDay, formatDate } from "../utils/dateFilter";
 
 type Props = {
+  _id: string;
   date: string;
   category: string;
   description: string;
   cash:string;
   status: string;
+  handleClick: (activityId: string) => void;
 };
 
-const CardDetail = ({ description, date, category, cash, status } : Props) => {
+const CardDetail = ({ description, date, category, cash, status, _id, handleClick } : Props) => {
   const [showMenu, setShowMenu] = useState(false);
 
   const handleDotClick = () => {
@@ -30,7 +32,7 @@ const CardDetail = ({ description, date, category, cash, status } : Props) => {
               className="text-2xl cursor-pointer"
               onClick={handleDotClick}
             />
-            <MenuDetail hidden={showMenu ? "hidden" : ''} />
+            <MenuDetail hidden={showMenu ? "hidden" : ''} handleClick={() => handleClick(_id)}/>
         </div>
         <div>
             

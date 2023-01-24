@@ -6,6 +6,7 @@ import CardDetail from "../../iconFaces/CardDetail";
 import { Header } from "../../header";
 import { ApiDataContext } from "../../../context/getUserContext";
 import { getActibitiesByUser } from "../../../services/activities/GetActibitiesByUser";
+import { api } from "../../utils/api/api";
 
 type ActivityProp = {
   _id: string;
@@ -25,16 +26,24 @@ const Detail = () => {
   useEffect(() => {
     getActibitiesByUser(id).then((res) => {
       setActivities(res);
-      console.log(activities);
-      console.log(id);
     })
 
   }, [id]);
 
   useEffect(() => {
-    setFilteredList( filterByMonth(activities, currentMonth) );
+    const timer = setTimeout(() => {
+      setFilteredList( filterByMonth(activities, currentMonth) );
+      console.log('renderizou');
+    }, 1000);
 
-  }, [activities, currentMonth]);
+    return () => clearTimeout(timer);
+
+  }, [activities, currentMonth, filtered]);
+
+  useEffect(() => {
+    
+
+  }, [filtered]);
 
   const handlePrevMonth = () => {
     let [year, month] = currentMonth.split('-');
@@ -48,6 +57,15 @@ const Detail = () => {
     let currentDate = new Date(parseInt(year), parseInt(month) - 1, 1);
     currentDate.setMonth( currentDate.getMonth() + 1 );
     setCurrentMont(`${currentDate.getFullYear()}-${currentDate.getMonth() + 1}`)
+  }
+
+  const handleClick = (activityId: string) => {
+    api.delete(`/v1/activity/${activityId}`);
+    getActibitiesByUser(id).then((res) => {
+      setActivities(res);
+      console.log(activities);
+      console.log(id);
+    })
   }
 
 
@@ -94,6 +112,8 @@ const Detail = () => {
                   description={item.description}
                   cash ={item.cash}
                   status={item.status}
+                  _id={item._id}
+                  handleClick={handleClick}
                 />
               </>
             ))}
