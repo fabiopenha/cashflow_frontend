@@ -17,22 +17,18 @@ const CardDetail = ({ description, date, category, cash, status, _id, handleClic
   const [showMenu, setShowMenu] = useState(false);
 
   const handleDotClick = () => {
-    showMenu ? setShowMenu(false) : setShowMenu(true);
+    !showMenu ? setShowMenu(true) : setShowMenu(false);
   }
 
-  useEffect(() => {
-    showMenu ? setShowMenu(false) : setShowMenu(true)
-  }, [])
-  
   return (
-    <div className="w-full border-b p-5 flex flex-col gap-2">
+    <div className="w-full border-b p-5 flex flex-col gap-2 transition ease-in-out delay-150">
         <div className="relative flex items-center justify-between">
             <p className="text-sm text-stone-400">{category}</p>
             <HiDotsHorizontal
               className="text-2xl cursor-pointer"
               onClick={handleDotClick}
             />
-            <MenuDetail hidden={showMenu ? "hidden" : ''} handleClick={() => handleClick(_id)}/>
+            <MenuDetail hidden={!showMenu ? "hidden" : ''} handleClick={() => handleClick(_id)}/>
         </div>
         <div>
             

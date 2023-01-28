@@ -25,12 +25,13 @@ const SelectCategory = ({ onChange, value }: Props) => {
       "
           id="category"
         >
-          <option value="mercado">Mercado</option>
+          <option value="alimentacao">Alimentação</option>
           <option value="contas">Contas</option>
-          <option value="freelancer">Freelancer</option>
+          <option value="mercado">Mercado</option>
+          <option value="Renda extra">Renda extra</option>
+          <option value="Salário">Salário</option>
           <option value="Saúde">Saúde</option>
           <option value="outros">Outros</option>
-          <option value="alimentacao">Alimentação</option>
         </select>
       </div>
     </>

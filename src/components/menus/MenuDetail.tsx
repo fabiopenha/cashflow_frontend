@@ -1,5 +1,3 @@
-import { api } from "../utils/api/api";
-
 type Props = {
   hidden: string;
   _id?: string;

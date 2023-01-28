@@ -22,7 +22,7 @@ export const ApiDataProvider = ({children} : IProps) => {
             .then(res => {
                 setData(res.data.user._id);
             })
-    }, [data]);
+    }, []);
 
     return (
         <ApiDataContext.Provider value={data}>

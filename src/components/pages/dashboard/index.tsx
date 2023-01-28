@@ -20,6 +20,9 @@ const Dashboard = () => {
   const [sumRendaExtra, setRendaExtra] = useState<number | undefined>(0);
   const [isLoading, setIsLoading] = useState('');
   
+  useEffect(() => {
+    // Use o contextValue aqui
+  }, [id]);
 
   useEffect(() => {
     getactivitiesdata(id).then((res) => {
@@ -30,11 +33,12 @@ const Dashboard = () => {
       setIsLoading('true');
     })
     setIsLoading('');
-  }, [id]);
+  }, [sumReceita,sumDespesa, sumSalario, sumRendaExtra]);
 
   let receita = 0;
 
-  if(sumReceita && sumDespesa) receita = sumReceita - sumDespesa;
+  receita = sumReceita! - sumDespesa!;
+  console.log(receita);
   
   return (
     <>
