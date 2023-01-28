@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useMemo, useState } from "react";
 import { TiArrowLeftThick, TiArrowRightThick } from "react-icons/ti";
 import { Link } from "react-router-dom";
 import { getCurrentMonth, formatCurrentMonth, filterByMonth } from '../../utils/dateFilter';
@@ -31,19 +31,11 @@ const Detail = () => {
   }, [id]);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setFilteredList( filterByMonth(activities, currentMonth) );
-      console.log('renderizou');
-    }, 1000);
+    setFilteredList( filterByMonth(activities, currentMonth) );
+    console.log('renderizou');
+  }, [activities, currentMonth]);
 
-    return () => clearTimeout(timer);
-
-  }, [activities, currentMonth, filtered]);
-
-  useEffect(() => {
-    
-
-  }, [filtered]);
+  const memoizedData = useMemo(() => filtered, [filtered]);
 
   const handlePrevMonth = () => {
     let [year, month] = currentMonth.split('-');
@@ -102,7 +94,7 @@ const Detail = () => {
 
           <div className="w-full h-72 mt-3 border overflow-y-auto">
 
-            {filtered.map(item => (
+            {memoizedData.map(item => (
               <>
                 {console.log(item)}
                 <CardDetail
