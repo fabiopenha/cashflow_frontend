@@ -1,10 +1,6 @@
 import { api } from "../../components/utils/api/api";
 
-interface IUserId {
-    id?: string;
-  }
-
-export const getActibitiesByUser = async (userId: IUserId) => {
+export const getActibitiesByUser = async (userId: any) => {
 
     const {data}  = await api.get(`/v1/activity/getuseractivities/${userId}`);
 

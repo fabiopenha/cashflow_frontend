@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 export const Header = () => {
   const navigate = useNavigate();
     
-    const [user, setUser] = useState<{name?: string}>();
+    const [user, setUser] = useState<{name?: string, image?: string}>();
 
     const handleClick = () => {
       logOut();
@@ -42,7 +42,7 @@ export const Header = () => {
       >
         <div className="flex items-center">
           <img
-            src={perfil}
+            src={`http://localhost:3333/${user?.image}`}
             alt="perfil"
             className="rounded-full w-[68px] h-[68px]"
           />

@@ -19,12 +19,15 @@ const Dashboard = () => {
   const [sumSalario, setSumSalario] = useState<number | undefined>(0);
   const [sumRendaExtra, setRendaExtra] = useState<number | undefined>(0);
   const [isLoading, setIsLoading] = useState('');
-  
-  useEffect(() => {
-    // Use o contextValue aqui
+  console.log(id);
+  useEffect(()=> {
+    if(!id) {
+      console.log('não rodou');
+    }
   }, [id]);
 
   useEffect(() => {
+    console.log(id);
     getactivitiesdata(id).then((res) => {
       setSumReceita(res.sumReceita[0]["totalReceita"]);
       setSumDespesa(res.sumDespesa[0]["totalDespesa"]);
